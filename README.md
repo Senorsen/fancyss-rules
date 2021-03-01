@@ -2,7 +2,7 @@
 Forked from [qxzg/Actions](https://github.com/qxzg/Actions).
 
 [![Update Fancyss Rules](https://github.com/Senorsen/fancyss-rules/workflows/Update%20Fancyss%20Rules/badge.svg)](https://github.com/Senorsen/fancyss-rules/actions?query=workflow%3A%22Update+Fancyss+Rules%22)    
-每日UTC+8 3:45自动更新[fancyss](https://github.com/hq450/fancyss)规则  
+每日UTC+8 00:00自动更新[fancyss](https://github.com/hq450/fancyss)规则  
 食用方法：
 - 手动将`/koolshare/scripts/ss_rule_update.sh`中第10行的  
 - `url_main="https://raw.githubusercontent.com/hq450/fancyss/master/rules"`改为  
