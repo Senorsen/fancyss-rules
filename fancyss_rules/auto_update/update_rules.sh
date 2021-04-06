@@ -1,5 +1,10 @@
 #!/bin/bash
 CurrentDate=$(date +%Y-%m-%d)
+
+function filter_and_save {
+	perl -nle 'print if m{^[[:ascii:]]+$}' > $1
+}
+
 # ======================================
 # get gfwlist for shadowsocks ipset mode
 python3 fwlist.py gfwlist_download.conf
@@ -63,11 +68,11 @@ echo =================
 # ======================================
 # get cdn list for shadowsocks chn and game mode
 
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
-wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
+wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf -O - | filter_and_save accelerated-domains.china.conf
+wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf -O - | filter_and_save apple.china.conf
+wget -4 https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf -O - | filter_and_save google.china.conf
 
-cat accelerated-domains.china.conf apple.china.conf google.china.conf | sed '/^#/d' | sed "s/server=\/\.//g" | sed "s/server=\///g" | sed -r "s/\/\S{1,30}//g" | sed -r "s/\/\S{1,30}//g" >cdn_download.txt
+cat accelerated-domains.china.conf apple.china.conf google.china.conf | sed '/^#/d' | sed "s/server=\/\.//g" | sed "s/server=\///g" | sed -r "s/\/\S{1,30}//g" | sed -r "s/\/\S{1,30}//g"  >cdn_download.txt
 cat cdn_koolshare.txt cdn_download.txt | sort -u >cdn1.txt
 
 md5sum5=$(md5sum cdn1.txt | sed 's/ /\n/g' | sed -n 1p)
