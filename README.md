@@ -10,7 +10,6 @@ Forked from [qxzg/Actions](https://github.com/qxzg/Actions).
 - `url_main="https://raw.githubusercontent.com/hq450/fancyss/master/rules"` 改为  
 - `url_main="https://raw.githubusercontent.com/Senorsen/fancyss-rules/master/fancyss_rules"`  
 - 并且每次更新 fancyss 后需重新修改该脚本
-- x86 版本的插件同理，找到更新规则的脚本并替换 `url_main` 就可以了（注意是否有最后的 `/` ，需要与原脚本行为一致）
 - 如果由于网络问题，更新规则的时候无法访问 `raw.githubusercontent.com` ，可以使用 GitHub CDN 源：`https://cdn.jsdelivr.net/gh/Senorsen/fancyss-rules@master/fancyss_rules`
 
 注：由于源更新较慢，大陆白名单已改用 [ispip.clang.cn](https://ispip.clang.cn/all_cn.txt) 作为规则源，而非 [fancyss原版规则](https://github.com/hq450/fancyss/tree/master/rules) 中的 https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/ipip_country/ipip_country_cn.netset
